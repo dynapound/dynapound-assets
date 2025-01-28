@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dyna Pound Assets</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    .asset {
+      background: #222;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    a {
+      color: #4caf50;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dyna Pound Assets</h1>
+  <div id="asset-list">Loading assets...</div>
 
+  <script>
+    // Fetch assets from JSON
+    fetch('assets.json')
+      .then(response => response.json())
+      .then(assets => {
+        const assetList = document.getElementById('asset-list');
+        assetList.innerHTML = assets.map(asset => `
+          <div class="asset">
+            <p><strong>${asset.name}</strong> (${asset.type})</p>
+            <a href="${asset.url}" target="_blank">View/Download</a>
+          </div>
+        `).join('');
+      })
+      .catch(err => {
+        console.error('Error loading assets:', err);
+        document.getElementById('asset-list').textContent = 'Failed to load assets.';
+      });
+  </script>
+</body>
+</html>
