@@ -1,0 +1,5 @@
+[
+  { "name": "Site Logo", "type": "image", "url": "assets/images/logo.png" },
+  { "name": "Main CSS", "type": "css", "url": "assets/css/styles.css" },
+  { "name": "Main Js", "type": "js", "url": "assets/js/main.js" }
+]
