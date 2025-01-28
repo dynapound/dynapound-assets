@@ -1,5 +1,20 @@
 [
-  { "name": "Site Logo", "type": "image", "url": "../assets/images/logo.png" },
-  { "name": "Main CSS", "type": "css", "url": "../assets/css/styles.css" },
-  { "name": "Main Js", "type": "js", "url": "../assets/js/main.js" }
+  { "name": "Images"},
+  { "name": "logo.png", "type": "image", "url": "../assets/images/logo.png" },
+  { "name": "alfie.gif", "type": "image", "url": "../assets/images/alfie.gif" },
+  { "name": "ben2.gif", "type": "image", "url": "../assets/images/ben2.gif" },
+  { "name": "lawri.gif", "type": "image", "url": "../assets/images/lawri.gif" },
+  { "name": "tom2.gif", "type": "image", "url": "../assets/images/tom2.gif" },
+  { "name": "home-open-source.gif", "type": "image", "url": "../assets/images/home-open-source.gif" },
+  { "name": "home-open-source-comunity.gif", "type": "image", "url": "../assets/images/home-open-source-comunity.gif" },
+  { "name": "group.gif", "type": "image", "url": "../assets/images/group.gif" },
+  { "name": "fuelhound.png", "type": "image", "url": "../assets/images/fuelhound.png" },
+  { "name": "empty.png", "type": "image", "url": "../assets/images/empty.png" },
+
+  { "name": "CSS"},
+  { "name": "Main styles.css", "type": "css", "url": "../assets/css/styles.css" },
+  { "name": "Main mobile-styles.css", "type": "css", "url": "../assets/css/mobile-styles.css" },
+
+  { "name": "JS"},
+  { "name": "Main main.js", "type": "js", "url": "../assets/js/main.js" }
 ]
