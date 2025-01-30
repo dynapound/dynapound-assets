@@ -385,7 +385,7 @@ footer .footer-bottom .privacy-link:hover {
   color: #333;
 }
 
-/* Projects Cards Responsive */
+/* Responsive Projects Cards */
 @media (max-width: 768px) {
   .skills-container {
     flex-direction: row;
@@ -397,29 +397,31 @@ footer .footer-bottom .privacy-link:hover {
 /* Project Card Container */
 .project-card-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem; /* Spacing between cards */
-  justify-content: center; /* Center align horizontally */
+  flex-wrap: nowrap;
+  gap: 2rem;
+  justify-content: center;
   padding: 2rem;
+  overflow-x: auto;
 }
 
 /* Project Card Styling */
 .project-card {
+  flex: 0 0 auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 380px;
   border-radius: 16px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  background: #f9f9f9;
-  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  border: 1px solid #3b82f6;
+  color: #1e293b;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .project-link {
@@ -431,22 +433,20 @@ footer .footer-bottom .privacy-link:hover {
 .preview-container {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 220px;
+  overflow: hidden;
 }
 
 .preview-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: blur(3px) brightness(0.8);
+  filter: brightness(0.9) contrast(1.1);
   transition: filter 0.3s ease;
 }
 
 .project-card:hover .preview-image {
-  filter: blur(0px) brightness(1);
+  filter: brightness(1) contrast(1.2);
 }
 
 .overlay {
@@ -455,7 +455,7 @@ footer .footer-bottom .privacy-link:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.85); /* Soft white overlay */
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(5px);
 }
 
@@ -465,24 +465,22 @@ footer .footer-bottom .privacy-link:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #333;
   z-index: 1;
-  font-family: 'Poppins', sans-serif;
-  padding: 20px;
+  padding: 15px;
 }
 
 .project-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #2563eb;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .project-description {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #555;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .project-author {
@@ -495,18 +493,19 @@ footer .footer-bottom .privacy-link:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   .project-card-container {
-    gap: 1.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
   }
 
   .project-card {
-    max-width: 100%;
+    max-width: 320px;
   }
 
   .content {
-    padding: 15px;
+    padding: 12px;
   }
 }
-
 
 
 /* Contact Form Styles */
