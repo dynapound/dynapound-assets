@@ -955,3 +955,49 @@ input:focus, textarea:focus {
         width: 70%; 
       }
     }
+
+
+
+
+    #fiverr-section {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.fiverr-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, #1dbf73, #17a067);
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(29, 191, 115, 0.5);
+}
+
+.fiverr-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.fiverr-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.fiverr-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(29, 191, 115, 0.6);
+    background: linear-gradient(90deg, #21c678, #18a76d);
+}
