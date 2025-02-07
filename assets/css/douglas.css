@@ -1001,3 +1001,122 @@ input:focus, textarea:focus {
     box-shadow: 0 6px 20px rgba(29, 191, 115, 0.6);
     background: linear-gradient(90deg, #21c678, #18a76d);
 }
+
+
+
+.hero-header-gif {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('https://assets.dynapound.com/assets/images/bg.gif') center/cover no-repeat, 
+              radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15), transparent 70%);
+  padding: 4rem 1rem;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+  color: var(--text);
+  height: 50vh; /* Adjust this to control height */
+}
+
+
+
+.fuel-hound-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), transparent);
+  color: var(--text);
+  text-align: center;
+  overflow: hidden;
+}
+
+.fuel-hound-section .container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.fuel-hound-section .section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.fuel-hound-section .section-description {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.fuel-hound-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.fuel-hound-info .text-container {
+  flex: 1;
+  max-width: 500px;
+}
+
+.fuel-hound-info .project-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.fuel-hound-info .project-description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.fuel-hound-info .image-container {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.fuel-hound-info .fuel-hound-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%; /* Ensures the image does not exceed the width of its container */
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensures image is properly fitted within the container */
+}
+
+@media (max-width: 768px) {
+  .fuel-hound-info {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.fuel-hound-cta-button {
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: var(--dark);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid var(--primary);
+  border-radius: var(--border-radius);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fuel-hound-cta-button:hover {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+}
+
+.fuel-hound-cta-button:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
