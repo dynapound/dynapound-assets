@@ -1,3 +1,30 @@
+// Toggle Mobile Menu
+function toggleMenu() {
+    const mobileNav = document.querySelector('.mobile-nav');
+    mobileNav.classList.toggle('open');
+  }
+
+
+function copyCode(button) {
+  const codeElement = button.closest('.mac-code-box').querySelector('code').innerText;
+  navigator.clipboard.writeText(codeElement).then(() => {
+    button.innerText = 'Copied!';
+    setTimeout(() => {
+      button.innerText = 'Copy Code';
+    }, 1500);
+  }).catch(err => {
+    console.error('Failed to copy:', err);
+  });
+}
+
+
+
+let currentPage = 0;
+const pages = document.querySelectorAll('.homeslide-page');
+
+
+
+
 /* Home Page Slide Wrapper */
 .homescroll-wrapper {
   position: relative;
