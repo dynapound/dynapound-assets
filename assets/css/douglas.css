@@ -932,8 +932,8 @@ input:focus, textarea:focus {
     }
 
     /* ---------------------------------- Slides Styles ----------------------------------------- */
- /* Carousel Wrapper */
-.homeslide-wrapper {
+/* Home Page Slide Wrapper */
+.homescroll-wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -941,11 +941,11 @@ input:focus, textarea:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fcfafa;
+  background: #121212;
 }
 
-/* Slide Pages */
-.homeslide-page {
+/* Individual Slides */
+.homescroll-page {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -953,21 +953,23 @@ input:focus, textarea:focus {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transform: scale(1.1);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.homeslide-page.active {
+.homescroll-page.active {
   opacity: 1;
+  transform: scale(1);
 }
 
 /* Images */
-.homeslide-page img {
-  max-width: 80%;
+.homescroll-page img {
+  max-width: 75%;
   height: auto;
   transition: transform 0.3s ease;
 }
 
-.homeslide-page img:hover {
+.homescroll-page img:hover {
   transform: scale(1.05);
 }
 
@@ -976,10 +978,10 @@ input:focus, textarea:focus {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   border: none;
-  padding: 12px 16px;
+  padding: 15px 20px;
   cursor: pointer;
   z-index: 10;
   font-size: 24px;
@@ -988,11 +990,11 @@ input:focus, textarea:focus {
 }
 
 .slide-nav.left {
-  left: 15px;
+  left: 20px;
 }
 
 .slide-nav.right {
-  right: 15px;
+  right: 20px;
 }
 
 .slide-nav:hover {
@@ -1000,19 +1002,15 @@ input:focus, textarea:focus {
   transform: scale(1.1);
 }
 
-/* Mobile Optimization */
+/* Mobile Support */
 @media (max-width: 768px) {
-  .homeslide-wrapper {
-    height: auto;
-  }
-
-  .homeslide-page img {
+  .homescroll-page img {
     max-width: 90%;
   }
 
   .slide-nav {
-    font-size: 18px;
-    padding: 10px;
+    font-size: 20px;
+    padding: 12px;
   }
 }
 
