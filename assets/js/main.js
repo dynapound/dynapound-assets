@@ -25,87 +25,50 @@ const pages = document.querySelectorAll('.homeslide-page');
 
 
 
-/* Home Page Slide Wrapper */
-.homescroll-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #121212;
-}
+let currentSlide = 0;
+const slides = document.querySelectorAll('.homescroll-page');
 
-/* Individual Slides */
-.homescroll-page {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: scale(1.1);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
+// Function to Change Slides
+function scrollToSlide(direction) {
+  slides[currentSlide].classList.remove('active');
 
-.homescroll-page.active {
-  opacity: 1;
-  transform: scale(1);
-}
+  currentSlide += direction;
 
-/* Images */
-.homescroll-page img {
-  max-width: 75%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.homescroll-page img:hover {
-  transform: scale(1.05);
-}
-
-/* Navigation Buttons */
-.slide-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: none;
-  padding: 15px 20px;
-  cursor: pointer;
-  z-index: 10;
-  font-size: 24px;
-  border-radius: 50%;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.slide-nav.left {
-  left: 20px;
-}
-
-.slide-nav.right {
-  right: 20px;
-}
-
-.slide-nav:hover {
-  background: rgba(0, 0, 0, 0.9);
-  transform: scale(1.1);
-}
-
-/* Mobile Support */
-@media (max-width: 768px) {
-  .homescroll-page img {
-    max-width: 90%;
+  if (currentSlide < 0) {
+    currentSlide = slides.length - 1; // Wrap to last slide
+  } else if (currentSlide >= slides.length) {
+    currentSlide = 0; // Wrap to first slide
   }
 
-  .slide-nav {
-    font-size: 20px;
-    padding: 12px;
+  slides[currentSlide].classList.add('active');
+}
+
+// Swipe Gesture Support for Mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.querySelector('.homescroll-wrapper').addEventListener('touchstart', (event) => {
+  touchStartX = event.changedTouches[0].screenX;
+});
+
+document.querySelector('.homescroll-wrapper').addEventListener('touchend', (event) => {
+  touchEndX = event.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  if (touchEndX < touchStartX - 50) {
+    scrollToSlide(1); // Swipe left (next slide)
+  } else if (touchEndX > touchStartX + 50) {
+    scrollToSlide(-1); // Swipe right (previous slide)
   }
 }
+
+// Optional: Auto-Switch Slides
+setInterval(() => {
+  scrollToSlide(1);
+}, 5000); // Change every 5 seconds
+
 
 
 
