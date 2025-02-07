@@ -19,58 +19,46 @@ function copyCode(button) {
 
 
 
-  // ------------------------------ Slides ----------------------------------------------------------------------------------- //
+let currentPage = 0;
+const pages = document.querySelectorAll('.homeslide-page');
 
-    let currentPage = 0; // Fixed variable declaration
-    const pages = document.querySelectorAll('.homeslide-page');
+// Function to change slides
+function scrollToPage(direction) {
+  currentPage += direction;
 
-    // Function to scroll to the next or previous page
-    function scrollToPage(direction) {
-      currentPage += direction;
+  if (currentPage < 0) {
+    currentPage = pages.length - 1; // Go to last slide if going back from first
+  } else if (currentPage >= pages.length) {
+    currentPage = 0; // Go to first slide if going forward from last
+  }
 
-      if (currentPage < 0) {
-        currentPage = 0; // Stay on the first page
-      } else if (currentPage >= pages.length) {
-        currentPage = pages.length - 1; // Stay on the last page
-      }
+  // Remove active class from all slides
+  pages.forEach((page) => page.classList.remove('active'));
 
-      // Scroll to the current page
-      pages[currentPage].scrollIntoView({ behavior: 'smooth' });
-    }
+  // Add active class to the current slide
+  pages[currentPage].classList.add('active');
+}
 
-    // Function to check if the user has scrolled past the homescroll section
-    function canScroll() {
-      const sectionRect = document.querySelector('.homescroll-002-container').getBoundingClientRect();
-      return sectionRect.bottom <= 0; // Returns true if the bottom of the section is above the viewport
-    }
+// Swipe Gesture Support for Mobile
+let touchStartX = 0;
+let touchEndX = 0;
 
-    // Enable scrolling to navigate between pages
-    document.addEventListener('wheel', function(event) {
-      if (canScroll()) { // Only allow navigation if the user has scrolled past the homescroll section
-        if (event.deltaY > 0) {
-          scrollToPage(1); // Scroll down
-        } else {
-          scrollToPage(-1); // Scroll up
-        }
-        event.preventDefault(); // Prevent default scrolling
-      }
-    });
+document.querySelector('.homeslide-wrapper').addEventListener('touchstart', (event) => {
+  touchStartX = event.changedTouches[0].screenX;
+});
 
-    // Function to reveal elements on scroll
-    function revealElements() {
-      let elements = document.querySelectorAll('.homescroll-002-reveal-item');
-      let windowHeight = window.innerHeight;
-      elements.forEach((el) => {
-        let position = el.getBoundingClientRect().top;
-        if (position < windowHeight - 100) {
-          el.classList.add('active');
-        }
-      });
-    }
+document.querySelector('.homeslide-wrapper').addEventListener('touchend', (event) => {
+  touchEndX = event.changedTouches[0].screenX;
+  handleSwipe();
+});
 
-    // Add scroll event listener for revealing elements
-    window.addEventListener('scroll', revealElements);
-    revealElements();
+function handleSwipe() {
+  if (touchEndX < touchStartX - 50) {
+    scrollToPage(1); // Swipe left to go forward
+  } else if (touchEndX > touchStartX + 50) {
+    scrollToPage(-1); // Swipe right to go back
+  }
+}
 
     // Set the current year in the footer if needed
     const currentYearElement = document.getElementById("current-year");
