@@ -60,8 +60,28 @@ function handleSwipe() {
   }
 }
 
+
+    // Function to reveal elements on scroll
+    function revealElements() {
+      let elements = document.querySelectorAll('.homescroll-002-reveal-item');
+      let windowHeight = window.innerHeight;
+      elements.forEach((el) => {
+        let position = el.getBoundingClientRect().top;
+        if (position < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    // Add scroll event listener for revealing elements
+    window.addEventListener('scroll', revealElements);
+    revealElements();
+
     // Set the current year in the footer if needed
     const currentYearElement = document.getElementById("current-year");
+    if (currentYearElement) {
+      currentYearElement.textContent = new Date().getFullYear();
+    }
     if (currentYearElement) {
       currentYearElement.textContent = new Date().getFullYear();
     }
