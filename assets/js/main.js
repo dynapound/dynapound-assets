@@ -75,6 +75,26 @@ setInterval(() => {
 
 
 
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.homescroll-002-reveal-item');
+
+  // Function to check and add the 'active' class
+  const revealOnScroll = () => {
+    items.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        item.classList.add('active');
+      }
+    });
+  };
+
+  // Add the 'active' class when scrolled into view
+  window.addEventListener('scroll', revealOnScroll);
+  
+  // Initial check in case items are already in view
+  revealOnScroll();
+});
 
 
 
