@@ -1,90 +1,85 @@
- // Toggle Mobile Menu
-function toggleMenu() {
-    const mobileNav = document.querySelector('.mobile-nav');
-    mobileNav.classList.toggle('open');
-  }
-
-
-function copyCode(button) {
-  const codeElement = button.closest('.mac-code-box').querySelector('code').innerText;
-  navigator.clipboard.writeText(codeElement).then(() => {
-    button.innerText = 'Copied!';
-    setTimeout(() => {
-      button.innerText = 'Copy Code';
-    }, 1500);
-  }).catch(err => {
-    console.error('Failed to copy:', err);
-  });
+/* Home Page Slide Wrapper */
+.homescroll-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #121212;
 }
 
-
-
-let currentPage = 0;
-const pages = document.querySelectorAll('.homeslide-page');
-
-// Function to change slides
-function scrollToPage(direction) {
-  currentPage += direction;
-
-  if (currentPage < 0) {
-    currentPage = pages.length - 1; // Go to last slide if going back from first
-  } else if (currentPage >= pages.length) {
-    currentPage = 0; // Go to first slide if going forward from last
-  }
-
-  // Remove active class from all slides
-  pages.forEach((page) => page.classList.remove('active'));
-
-  // Add active class to the current slide
-  pages[currentPage].classList.add('active');
+/* Individual Slides */
+.homescroll-page {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-// Swipe Gesture Support for Mobile
-let touchStartX = 0;
-let touchEndX = 0;
+.homescroll-page.active {
+  opacity: 1;
+  transform: scale(1);
+}
 
-document.querySelector('.homeslide-wrapper').addEventListener('touchstart', (event) => {
-  touchStartX = event.changedTouches[0].screenX;
-});
+/* Images */
+.homescroll-page img {
+  max-width: 75%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
 
-document.querySelector('.homeslide-wrapper').addEventListener('touchend', (event) => {
-  touchEndX = event.changedTouches[0].screenX;
-  handleSwipe();
-});
+.homescroll-page img:hover {
+  transform: scale(1.05);
+}
 
-function handleSwipe() {
-  if (touchEndX < touchStartX - 50) {
-    scrollToPage(1); // Swipe left to go forward
-  } else if (touchEndX > touchStartX + 50) {
-    scrollToPage(-1); // Swipe right to go back
+/* Navigation Buttons */
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 24px;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.slide-nav.left {
+  left: 20px;
+}
+
+.slide-nav.right {
+  right: 20px;
+}
+
+.slide-nav:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+/* Mobile Support */
+@media (max-width: 768px) {
+  .homescroll-page img {
+    max-width: 90%;
+  }
+
+  .slide-nav {
+    font-size: 20px;
+    padding: 12px;
   }
 }
 
-
-    // Function to reveal elements on scroll
-    function revealElements() {
-      let elements = document.querySelectorAll('.homescroll-002-reveal-item');
-      let windowHeight = window.innerHeight;
-      elements.forEach((el) => {
-        let position = el.getBoundingClientRect().top;
-        if (position < windowHeight - 100) {
-          el.classList.add('active');
-        }
-      });
-    }
-
-    // Add scroll event listener for revealing elements
-    window.addEventListener('scroll', revealElements);
-    revealElements();
-
-    // Set the current year in the footer if needed
-    const currentYearElement = document.getElementById("current-year");
-    if (currentYearElement) {
-      currentYearElement.textContent = new Date().getFullYear();
-    }
-    if (currentYearElement) {
-      currentYearElement.textContent = new Date().getFullYear();
-    }
 
 
 
