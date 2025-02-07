@@ -17,16 +17,8 @@ function copyCode(button) {
   });
 }
 
-
-
-let currentPage = 0;
-const pages = document.querySelectorAll('.homeslide-page');
-
-
-
-
 let currentSlide = 0;
-const slides = document.querySelectorAll('.homescroll-page');
+const slides = document.querySelectorAll('.homeslide-page');
 
 // Function to Change Slides
 function scrollToSlide(direction) {
@@ -47,11 +39,11 @@ function scrollToSlide(direction) {
 let touchStartX = 0;
 let touchEndX = 0;
 
-document.querySelector('.homescroll-wrapper').addEventListener('touchstart', (event) => {
+document.querySelector('.homeslide-wrapper').addEventListener('touchstart', (event) => {
   touchStartX = event.changedTouches[0].screenX;
 });
 
-document.querySelector('.homescroll-wrapper').addEventListener('touchend', (event) => {
+document.querySelector('.homeslide-wrapper').addEventListener('touchend', (event) => {
   touchEndX = event.changedTouches[0].screenX;
   handleSwipe();
 });
