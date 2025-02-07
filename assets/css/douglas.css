@@ -935,7 +935,7 @@ input:focus, textarea:focus {
 
     /* ---------------------------------- Slides Styles ----------------------------------------- */
 /* Home Page Slide Wrapper */
-.homescroll-wrapper {
+.homeslide-wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -943,11 +943,11 @@ input:focus, textarea:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #121212;
+  background-color: #ffffff; /* White background */
 }
 
 /* Individual Slides */
-.homescroll-page {
+.homeslide-page {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -956,23 +956,26 @@ input:focus, textarea:focus {
   justify-content: center;
   opacity: 0;
   transform: scale(1.1);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
 }
 
-.homescroll-page.active {
+.homeslide-page.active {
   opacity: 1;
   transform: scale(1);
 }
 
 /* Images */
-.homescroll-page img {
-  max-width: 75%;
+.homeslide-page img {
+  max-width: 85%;
   height: auto;
-  transition: transform 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.homescroll-page img:hover {
+.homeslide-page img:hover {
   transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 /* Navigation Buttons */
@@ -980,15 +983,15 @@ input:focus, textarea:focus {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
+  background: rgba(0, 0, 0, 0.3); /* Dark button background */
+  color: #fff;
   border: none;
   padding: 15px 20px;
   cursor: pointer;
   z-index: 10;
   font-size: 24px;
   border-radius: 50%;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .slide-nav.left {
@@ -1000,14 +1003,15 @@ input:focus, textarea:focus {
 }
 
 .slide-nav:hover {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.5); /* Darker background on hover */
   transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Mobile Support */
 @media (max-width: 768px) {
-  .homescroll-page img {
-    max-width: 90%;
+  .homeslide-page img {
+    max-width: 95%;
   }
 
   .slide-nav {
@@ -1015,6 +1019,7 @@ input:focus, textarea:focus {
     padding: 12px;
   }
 }
+
 
 
 
