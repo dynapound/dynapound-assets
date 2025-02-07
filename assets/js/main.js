@@ -85,3 +85,28 @@ function handleSwipe() {
     if (currentYearElement) {
       currentYearElement.textContent = new Date().getFullYear();
     }
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const socialIcons = document.querySelectorAll(".social-icon");
+
+  socialIcons.forEach(icon => {
+    icon.addEventListener("mouseover", () => {
+      const platform = icon.getAttribute("data-platform");
+      console.log(`Hovered over: ${platform}`);
+    });
+
+    icon.addEventListener("click", (e) => {
+      e.preventDefault();
+      alert(`Redirecting to ${icon.getAttribute("data-platform")}`);
+    });
+  });
+});
