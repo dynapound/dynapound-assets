@@ -1026,12 +1026,12 @@ input:focus, textarea:focus {
 
 
 
-    #fiverr-section {
+    #buy-section {
     text-align: center;
     padding: 3rem 1rem;
 }
 
-.fiverr-button {
+.buy-button {
     display: inline-block;
     padding: 1rem 2.5rem;
     font-size: 1.3rem;
@@ -1047,7 +1047,7 @@ input:focus, textarea:focus {
     box-shadow: 0 4px 15px rgba(29, 191, 115, 0.5);
 }
 
-.fiverr-button::before {
+.buy-button::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -1059,11 +1059,11 @@ input:focus, textarea:focus {
     transform: translate(-50%, -50%) scale(0);
 }
 
-.fiverr-button:hover::before {
+.buy-button:hover::before {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.fiverr-button:hover {
+.buy-button:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(29, 191, 115, 0.6);
     background: linear-gradient(90deg, #21c678, #18a76d);
