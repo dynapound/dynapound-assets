@@ -186,11 +186,10 @@ html {
     background: transparent; 
 }
 
-
 form { max-width:420px; margin:50px auto; }
 
 .contact-input {
-  color:white;
+  color:black;
   font-weight:500;
   font-size: 18px;
   border-radius: 5px;
