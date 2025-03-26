@@ -182,13 +182,15 @@ html {
     box-shadow: 0 0 10px rgba(37, 99, 235, 0.6); 
 }
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+::-webkit-scrollbar-corner {
+    background: transparent; 
+}
+
 
 form { max-width:420px; margin:50px auto; }
 
-.feedback-input {
+.contact-input {
   color:white;
-  font-family: Helvetica, Arial, sans-serif;
   font-weight:500;
   font-size: 18px;
   border-radius: 5px;
@@ -203,7 +205,7 @@ form { max-width:420px; margin:50px auto; }
   outline:0;
 }
 
-.feedback-input:focus { border:2px solid #4b7bd1; }
+.contact-input:focus { border:2px solid #4b7bd1; }
 
 textarea {
   height: 150px;
@@ -212,7 +214,6 @@ textarea {
 }
 
 [type="submit"] {
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   width: 100%;
   background:#6495ED;
   border-radius:5px;
@@ -227,7 +228,3 @@ textarea {
   font-weight:700;
 }
 [type="submit"]:hover { background:#4b7bd1; }
-
-::-webkit-scrollbar-corner {
-    background: transparent; 
-}
