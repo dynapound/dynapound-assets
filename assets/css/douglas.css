@@ -322,3 +322,45 @@ body {
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Ensure the container and section fill the entire viewport */
+#dynapound {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Make it take up the full height of the viewport */
+  overflow: hidden;
+}
+
+/* Container to ensure content inside aligns properly */
+#dynapound .container {
+  position: relative;
+  z-index: 10; /* Ensures content stays above the background */
+}
+
+/* Set up the background image for the parallax effect */
+.jarallax-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Ensures background is behind the content */
+}
+
+/* Optional: Add text styles for your content */
+#dynapound .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#dynapound .col-12 {
+  padding: 50px;
+  color: white;
+  font-size: 2rem;
+}
+
