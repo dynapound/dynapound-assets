@@ -107,3 +107,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    jarallax(document.querySelectorAll('.jarallax'), {
+      speed: 0.3, // Dynamically adjust the speed here if needed
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const jarallaxSections = document.querySelectorAll('.jarallax');
+
+    jarallaxSections.forEach((section) => {
+      const dynascrollSpeed = section.getAttribute('data-dynascroll') || 0.3; // Default speed if not set
+
+      jarallax(section, {
+        speed: dynascrollSpeed,
+      });
+    });
+  });
